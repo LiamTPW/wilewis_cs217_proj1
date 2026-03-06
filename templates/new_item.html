@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href={{url_for('static', filename='style.css')}}/>
+    <title>Title</title>
+</head>
+<body>
+    <table cellspacing="0" cellpadding="5" border="1">
+        <form action="/add_item" method="post">
+            <tr>
+                <h2>Task Priority</h2>
+                <input type="number" name="Priority" />
+            </tr>
+            <tr>
+                <h2>Complete?</h2>
+                <input type="checkbox" name="Done" />
+            </tr>
+            <tr>
+                <h2>Due Date</h2>
+                <input type="date" name="Due" />
+            </tr>
+            <tr>
+                <h2>Item Description</h2>
+                <input type="text" name="Description" />
+            <tr>
+                <h2></h2>
+                <input type="submit" value="Submit">
+            </tr>
+        </form>
+    </table>
+</body>
+</html>

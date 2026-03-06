@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href={{url_for('static', filename='style.css')}}/>
+</head>
+<body>
+    <p>List:</p>
+	<blockquote>
+		<table cellspacing="0" cellpadding="5" border="1">
+        <tr>
+            <td> ID </td>
+			<td> Priority </td>
+			<td> Done </td>
+            <td> Created </td>
+            <td> Due </td>
+            <td> Note </td>
+        </tr>
+		{% for item in json_list %}
+		<tr>
+			<td>
+                <form action="/change_item" method="post">
+                    <input type="submit" value="{{ item['identifier'] }}" name="to_change">
+                </form>
+            </td>
+			<td>{{ item['priority'] }}</td>
+			<td>{{ item['done'] }}</td>
+            <td>{{ item['created'] }}</td>
+            <td>{{ item['due'] }}</td>
+            <td>{{ item['note'] }} </td>
+		{% endfor %}
+		</tr>
+		</table>
+	</blockquote>
+    <form action="/add_item" method="get">
+        <input type="submit" value="Add Item">
+    </form>
+</body>
+</html>
